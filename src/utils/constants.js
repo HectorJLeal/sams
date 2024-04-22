@@ -1,8 +1,8 @@
 // Pdfs
 export const pdfs = [
     "Preciador garantía extendida SM",
-    "Contrato garnatía extendida",
-    "Preciador GE Sams carta"
+    "Contrato garantía extendida",
+    "Preciador GE Sams carta"   
 ]
 
 //Images
@@ -39,3 +39,18 @@ export const pages = {
 
 export const keys = Object.keys(pages)
 
+
+//Urls
+
+export const Urls = [
+    "/assets/comics/HistorietaElectricos.jpg",
+    "/assets/imagenes/Elegibles.png",
+    "/assets/pdfs/ContratoGarantíaExtendida.pdf",
+    "/assets/pdfs/PreciadorGarantíaExtendidaSM.pdf",
+    "/assets/pdfs/PreciadorGESamsCarta.pdf",
+    "/assets/videos/VideoSMCelulares-tablets.mp4",
+    "/assets/videos/VideoSMComputo.mp4",
+    "/assets/videos/VideoSMPantallas.mp4",
+    "/assets/videos/VideoSMLineaBlanca.mp4",
+    "/assets/videos/VideoSMElectronica.mp4"
+]
