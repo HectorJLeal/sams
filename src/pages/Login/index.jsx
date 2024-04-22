@@ -3,6 +3,7 @@
 import FrameFullWidth from "@/components/frameFullWidth/frameFullWith";
 import OptionFrame from "@/components/optionFrame/optionFrame";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const LoginPage = () => {
     const [isShowLoadingPage, setShowLoadingPage] = useState(true);
@@ -23,7 +24,7 @@ const LoginPage = () => {
                     <img className="w-5/12 md:w-4/12 lg:w-2/12 absolute top-10 lg:top-15 xl:left-[500px] 2xl:left-[600px]" src="assets/bgImages/samsTitle.png" alt="Titulo Sams" />
                 </div>
                 <div className="flex justify-center items-center z-10 h-4/6 w-full">   
-                    <img className="w-4/6 lg:w-5/12 h-5/6 animation" src="assets/hoodies/loginHoodie.png" alt="hoodie inicio" />
+                    <Image className="animation" src="/assets/hoodies/loginHoodie.png" alt="hoodie inicio" width={300} height={300} />
                 </div>
                 {/* <div className="flex justify-center items-center z-10 h-1/6 w-full relative">    
                     <CustomizedProgressBar classname={"absolute left-20"} />
