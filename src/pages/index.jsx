@@ -1,4 +1,4 @@
-import LoginPage from "./login/index.jsx";
+import LoginPage from "../pages/login/index.jsx";
 
 export default function Home() {
   return (
