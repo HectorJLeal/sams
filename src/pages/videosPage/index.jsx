@@ -1,25 +1,35 @@
 
     import FrameFullWidth from "@/components/frameFullWidth/frameFullWith";
     import Arrow from "@/components/arrow/arrow";
-    import Archives from "@/components/archives/archives";
+    import Archives from "@/components/archivesfiles/archives";
+    import BasicBreadcrumbs from "@/components/breadcrumb/breadcrumb";
+    import { videos } from "@/utils/constants";
+    import { keys } from "@/utils/constants";
+    import { useState } from "react";
+    import ContentPage from "../contentPage";
     
     const  VideosPage = () =>{
+
+        const [selectedVideo, setSelectedVideo] = useState(null);
+        const [file, setFile] = useState(keys[3])
+        
+        const handlePdfClick = (archiveTitle) => {
+            setSelectedVideo(archiveTitle);
+        };
     
-    
-        const videos = [
-            "Video SM celulares-tablet",
-            "Video SM computo",
-            "Video SM electronica",
-            "Video SM linea blanca",
-            "Video SM Pantallas"
-        ]
     
         return (
-            <section className="h-screen w-screen relative">
+        <> 
+            <section className={`${selectedVideo === null ? "h-screen w-screen relative" : "hidden"}`}>
                 <div className="flex w-full items-center my-5">
                     <Arrow
                         backTo={"/"}  
-                        currentPage={"Documentos"}
+                        currentPage={"Videos"}
+                    />
+                    <BasicBreadcrumbs
+                        goTo={"/videosPage"}
+                        previousPage={"Videos"}
+                        page={""}
                     />
                 </div>
     
@@ -28,40 +38,25 @@
                      textFrameFull={"Consulta nuestra información en los archivos adjuntos"}
                      imageSource={"assets/hoodies/hoodieAssetsPages.png"}
                      imageAlt={"hoodie page 2"}
-                     textClassname="text-end w-full text-xs absolute top-10 right-6"
+                     textClassname="text-end w-full text-xs md:text-3xl md:text-center absolute top-10 md:top-7 right-6"
                      bgImage={"assets/bgImages/bgline.png"}
                     />
-                    <div className="flex flex-col w-11/12 items-center mt-5">
-                        <Archives 
-                            icon={"assets/icons/videosIcon.png"}
-                            pdfAlt={"videosIcon"} 
-                            archivetitle={videos[0]} 
-                        />
-                        <Archives 
-                            icon={"assets/icons/videosIcon.png"}
-                            pdfAlt={"videosIcon"} 
-                            archivetitle={videos[1]} 
-                        />
-                        <Archives 
-                            icon={"assets/icons/videosIcon.png"}
-                            pdfAlt={"videosIcon"} 
-                            archivetitle={videos[2]} 
-                        />
-                        <Archives 
-                            icon={"assets/icons/videosIcon.png"}
-                            pdfAlt={"videosIcon"} 
-                            archivetitle={videos[3]} 
-                        />
-                        <Archives 
-                            icon={"assets/icons/videosIcon.png"}
-                            pdfAlt={"videosIcon"} 
-                            archivetitle={videos[4]} 
-                        />
-                    </div>  
+                <div className="flex flex-col w-11/12 md:w-full items-center mt-5">
+                {videos.map(archiveTitle => (
+                    <Archives 
+                        key={archiveTitle}
+                        icon={"assets/icons/videosIcon.png"}
+                        pdfAlt={"pdfIcon"} 
+                        archivetitle={archiveTitle} 
+                        onClick={() => handlePdfClick(archiveTitle)}
+                    />
+                ))}
+                </div>   
                 </div>
-            
-    
             </section>
+
+        {selectedVideo && <ContentPage archiveTitle={selectedVideo} section={file}  hide={() => handlePdfClick(null)}/>}
+    </>            
         )
     }   
 

@@ -1,17 +1,27 @@
-import Arrow from "@/components/arrow/arrow";
-import { pdfs } from "@/utils/constants";
 
-const ContentPage = () => {
-    return(
+import ButtonToReturn from "@/components/buttonToReturn/buttonToReturn";
+import BasicBreadcrumbs from "@/components/breadcrumb/breadcrumb";
+
+
+const ContentPage = ({ archiveTitle, section, hide}) => {
+
+    return (
         <section className="h-screen w-screen relative">
             <div className="flex w-full items-center my-5">
-                <Arrow
-                    backTo={"/documentsPage"}
-                    currentPage={"Checar"}
+                {/* Pasa pdfTitle al componente Arrow */}
+                <ButtonToReturn
+                    hideCurrent={hide}
+                    currentPage={archiveTitle} // Utiliza pdfTitle como currentPage
                 />
-            
+                <BasicBreadcrumbs 
+                     previousPage={section}
+                     page={archiveTitle}
+                     hidePage={hide}
+                />
+                
             </div>
-        </section> 
-    )
-}
+        </section>
+    );
+};
+
 export default ContentPage;
