@@ -2,17 +2,17 @@
 import ButtonToReturn from "@/components/buttonToReturn/buttonToReturn";
 import BasicBreadcrumbs from "@/components/breadcrumb/breadcrumb";
 import { Urls } from "@/utils/constants";
+import { cleanString } from "@/utils/constants";
 
 
 const ContentPage = ({ archiveTitle, section, hide}) => {
 
-       // Función para limpiar el título y la URL para hacer coincidir
-       const cleanString = (str) => {
-        return str.toLowerCase().replace(/\s+/g, ''); // Elimina espacios y convierte a minúsculas
-    };
+    if (!archiveTitle) {
+        return null; // O manejar de alguna otra forma el caso de archiveTitle undefined
+    }
 
-      // Función para encontrar la URL correspondiente al archiveTitle
-      const findUrl = () => {
+    // Función para encontrar la URL correspondiente al archiveTitle
+    const findUrl = () => {
         const cleanedTitle = cleanString(archiveTitle);
         for (const url of Urls) {
             const cleanedUrl = cleanString(url);

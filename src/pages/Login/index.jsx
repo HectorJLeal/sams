@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 const LoginPage = () => {
     const [isShowLoadingPage, setShowLoadingPage] = useState(true);
 
-    
-
     useEffect(() => {
         const TimeOut = setTimeout(() => {
             setShowLoadingPage(false)
