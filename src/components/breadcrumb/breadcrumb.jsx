@@ -10,7 +10,7 @@ function handleClick(event) {
 
 export default function BasicBreadcrumbs({page, previousPage, hidePage}) {
   return (
-    <div className="hidden md:flex md:justify-start md:w-10/12 md:ml-24">
+    <div className="hidden md:flex md:justify-start md:w-10/12 md:ml-24 lg:ml-32">
         <div role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
             <Link className='hover:underline text-blue-900' color="text-blue-900" href="/">

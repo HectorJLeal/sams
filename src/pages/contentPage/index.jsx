@@ -44,7 +44,7 @@ const ContentPage = ({ archiveTitle, section, hide}) => {
         
       {/* Muestra el contenido si se encontró la URL correspondiente */}
       {url && (
-                <div className="h-full w-11/12">
+                <div className="h-full w-11/12 mb-2">
                     <iframe src={url} title={archiveTitle} className="w-full h-full" />
                 </div>
             )}

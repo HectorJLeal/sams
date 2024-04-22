@@ -7,6 +7,7 @@
     import { keys } from "@/utils/constants";
     import { useState } from "react";
     import ContentPage from "../contentPage";
+    import { findUrl } from "@/utils/functions";
     
     const  VideosPage = () =>{
 
@@ -38,10 +39,10 @@
                      textFrameFull={"Consulta nuestra información en los archivos adjuntos"}
                      imageSource={"assets/hoodies/hoodieAssetsPages.png"}
                      imageAlt={"hoodie page 2"}
-                     textClassname="text-end w-full text-xs md:text-3xl md:text-center absolute top-10 md:top-7 right-6"
+                     textClassname="text-end w-full text-xs md:text-2xl lg:text-3xl md:text-center absolute top-10 md:top-7 right-6"
                      bgImage={"assets/bgImages/bgline.png"}
                     />
-                <div className="flex flex-col w-11/12 md:w-full items-center mt-5">
+                <div className="flex flex-col w-11/12 items-center mt-5">
                 {videos.map(archiveTitle => (
                     <Archives 
                         key={archiveTitle}
@@ -49,6 +50,7 @@
                         pdfAlt={"pdfIcon"} 
                         archivetitle={archiveTitle} 
                         onClick={() => handlePdfClick(archiveTitle)}
+                        downloadArchive={() => findUrl(archiveTitle)}
                     />
                 ))}
                 </div>   

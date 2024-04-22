@@ -6,6 +6,7 @@ import { pdfs } from "@/utils/constants";
 import { keys } from "@/utils/constants";
 import { useState } from "react";
 import ContentPage from "../contentPage";
+import { findUrl } from "@/utils/functions";
 
 const DocumentsPage = () =>{
     const [selectedPdf, setSelectedPdf] = useState(null);
@@ -15,8 +16,9 @@ const DocumentsPage = () =>{
         setSelectedPdf(pdfTitle);
     };
     console.log("actual " + selectedPdf)
-    
 
+    
+    
     return (
      <>   
         <section className={`${selectedPdf === null ? "h-screen w-screen relative" : "hidden"}`}>
@@ -37,10 +39,10 @@ const DocumentsPage = () =>{
                  textFrameFull={"Consulta nuestra información en los archivos adjuntos"}
                  imageSource={"assets/hoodies/hoodieAssetsPages.png"}
                  imageAlt={"hoodie page 2"}
-                 textClassname="text-end w-full text-xs md:text-3xl md:text-center absolute top-10 md:top-7 right-6"
+                 textClassname="text-end w-full text-xs md:text-2xl lg:text-3xl md:text-center absolute top-10 md:top-7 right-6"
                  bgImage={"assets/bgImages/bgline.png"}
                 />
-            <div className="flex flex-col w-11/12 md:w-full items-center mt-5">
+            <div className="flex flex-col w-11/12 items-center mt-5">
                 {pdfs.map(archiveTitle => (
                     <Archives 
                         key={archiveTitle}
@@ -48,6 +50,7 @@ const DocumentsPage = () =>{
                         pdfAlt={"pdfIcon"} 
                         archivetitle={archiveTitle} 
                         onClick={() => handlePdfClick(archiveTitle)}
+                        downloadArchive={() => findUrl(archiveTitle)}
                     />
                 ))}
             </div>  

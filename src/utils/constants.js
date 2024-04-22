@@ -54,3 +54,10 @@ export const Urls = [
     "/assets/videos/VideoSMLineaBlanca.mp4",
     "/assets/videos/VideoSMElectronica.mp4"
 ]
+
+//Function
+
+  // Función para limpiar el título y la URL para hacer coincidir
+ export const cleanString = (str) => {
+    return str.toLowerCase().replace(/\s+/g, ''); // Elimina espacios y convierte a minúsculas
+};

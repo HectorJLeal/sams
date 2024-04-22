@@ -76,7 +76,7 @@ const LoginPage = () => {
             </div>
         </div>
 
-        <div className="hidden md:flex md:justify-center md:items-center md:w-11/12 md:h-3/6 md:gap-10">
+        <div className="hidden md:flex md:justify-center md:items-center md:w-10/12 md:h-3/6 md:gap-10">
             <div className="w-4/12 h-full">
                 <OptionFrame 
                         icon={"assets/icons/pdfIcon.png"} 

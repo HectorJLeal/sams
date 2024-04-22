@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const Archives = ({ icon, pdfAlt, archivetitle, onClick }) => {
+const Archives = ({ icon, pdfAlt, archivetitle, onClick, downloadArchive }) => {
     return (
         <div className="flex justify-between h-10 md:h-16 w-11/12 border-b-2 mt-2">
             <div className="flex items-center w-3/4 h-5/6 gap-3 md:gap-10">
@@ -21,7 +21,9 @@ const Archives = ({ icon, pdfAlt, archivetitle, onClick }) => {
                     </Link>
                 </div>
                 <div>
-                    <button>
+                    <button
+                      onClick={downloadArchive}
+                    >
                         <img src="assets/icons/downloadIcon.png" alt="downloadIcon.png" />
                     </button>
                 </div>
